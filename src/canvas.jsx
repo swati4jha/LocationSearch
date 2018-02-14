@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import ReactDOM from 'react-dom';
-var preventDefault = require('react-prevent-default');
+import { Container, Row, Col } from 'reactstrap';
+
 function rect(props) {
     const {ctx, x, y, width, height} = props;
     ctx.fillStyle="#dddddd";
@@ -36,18 +37,18 @@ class Canvas extends React.Component {
             <div className={"canvas-wrap " + (this.props.count%2==0 ? 'leftTable' : 'rightTable')}>
             <canvas ref="canvas" width="400" height="100"></canvas>
             <div className="overlay">
-            <div className="row abc"> {
+            <Row className="main-table"> {
                 this.props.users.map((users,i) =>{
-                   return (<div key={users.id.toString()}  className="col-sm-6" style={{textAlign: "center"}}>
+                   return (<Col key={users.id.toString()}  sm="6" style={{textAlign: "center"}}>
 					    <button className="profileM" style={{backgroundImage:"url(src/images/"+users.id+".png)"}}
 						id={users.id}></button><img src="src/note.jpg" className="noteImg" width="50" height="50"></img>
 						
-					  </div>)
+					  </Col>)
 					
 					}
 				)
 			}
-			</div></div></div>
+			</Row></div></div>
 			)
       }
     
