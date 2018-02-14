@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ReactDOM from 'react-dom';
+import { Container, Row, Col } from 'reactstrap';
 import Example from './leftMenu.jsx'
 import Canvas from './canvas.jsx'
 class App extends React.Component {
@@ -30,17 +31,17 @@ class App extends React.Component {
         
     }
 	render(){
-		return (<div style={{height: 100+"%"}} onClick={(e) => (this.showMsg(e))}><div className="row" >{
+		return (<div style={{height: 100+"%"}} onClick={(e) => (this.showMsg(e))}><Row >{
 			this.props.users.map((users,i) =>{
 				var list = this.props.users.filter(user => user.table == i+1);
 				if(list.length>0){
-					return (<div className="col-sm-6" key={users.id.toString()}><Canvas   
-					users={list} count={i}/></div>)
+					return (<Col sm="6" key={users.id.toString()}><Canvas   
+					users={list} count={i}/></Col>)
 					}
 				}
 			)
 		}
-		</div></div>)
+		</Row></div>)
 	}
 }
 
